@@ -19,14 +19,14 @@ Mert Aktaş 2019
 
 ## Proje hakkında
 
-Post uygulaması kullanıcının post atmasını sağlayan bir web uygulamasıdır.
+- Post uygulaması kullanıcının post atmasını sağlayan bir web uygulamasıdır.
 
 ## Proje hedefleri
 
-- Front end ve Back end birarada kullanma
-- Vue.js becerilerinin gelişmesi
-- Node.js becerilerinin gelişmesi
-- MongoDB becerilerinin gelişmesi
+- Front end ve Back end bir arada kullanılması.
+- Vue.js becerilerinin geliştirilmesi.
+- Node.js becerilerinin geliştirilmesi.
+- Mongo DB becerilerinin geliştirilmesi.
 
 ## Teknolojiler
 
