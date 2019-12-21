@@ -29,7 +29,8 @@ router.delete('/:id', async (req, res) => {
 
 async function loadPostsCollection() {
     const client = await mongodb.MongoClient.connect('mongodb+srv://mert123:mert123@mevn-zgttp.mongodb.net/test?retryWrites=true&w=majority', {
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        useUnifiedTopology: true
     });
 
     return client.db('mevn_post').collection('posts');

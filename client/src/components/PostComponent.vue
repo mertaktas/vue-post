@@ -1,14 +1,9 @@
 <template>
   <div class="container">
-    <h1>Latest Posts</h1>
+    <h1>Post App</h1>
     <div class="create-post">
       <label for="create-post">Birşeyler yaz</label>
-      <input
-        type="text"
-        id="create-post"
-        v-model="text"
-        placeholder="Post Yarat"
-      />
+      <input type="text" id="create-post" v-model="text" v-bind:placeholder="value" />
       <button v-on:click="createPost">Post!</button>
     </div>
     <hr />
@@ -20,12 +15,14 @@
         v-bind:item="post"
         v-bind:index="index"
         v-bind:key="post._id"
-        v-on:dblclick="deletePost(post._id)"
       >
-        {{
+        <h6 class="date">
+          {{
           `${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}`
-        }}
-        <p class="text">{{ post.text }}</p>
+          }}
+        </h6>
+        <p class="text">{{ post.text.substring(0, 100) }}..</p>
+        <button class="btn" v-on:click="deletePost(post._id)">DltPost!</button>
       </div>
     </div>
   </div>
@@ -40,7 +37,8 @@ export default {
     return {
       posts: [],
       error: "",
-      text: ""
+      text: "",
+      value: "Buraya birşey yazın"
     };
   },
   async created() {
@@ -54,6 +52,7 @@ export default {
     async createPost() {
       await PostService.insertPost(this.text);
       this.posts = await PostService.getPosts();
+      setTimeout((this.text = ""), 1000);
     },
     async deletePost(id) {
       await PostService.deletePost(id);
@@ -96,7 +95,10 @@ div.created-at {
 
 p.text {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 200;
   margin-bottom: 0;
+}
+h6.date {
+  float: right;
 }
 </style>
